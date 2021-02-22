@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.meetin.daos.PostDao
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity(), IPostAdapter {
 
     private lateinit var postDao: PostDao
     private lateinit var adapter: PostAdapter
+    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,8 @@ class MainActivity : AppCompatActivity(), IPostAdapter {
             startActivity(intent)
         }
 
+        setSupportActionBar(findViewById(R.id.mainToolbar))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setUpRecyclerView()
     }
 
