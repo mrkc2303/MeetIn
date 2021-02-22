@@ -1,5 +1,3 @@
-package com.example.meetin
-
 class Utils {
     companion object {
         private const val SECOND_MILLIS = 1000
@@ -30,7 +28,5 @@ class Utils {
                 (diff / DAY_MILLIS).toString() + " days ago"
             }
         }
-
-
     }
 }

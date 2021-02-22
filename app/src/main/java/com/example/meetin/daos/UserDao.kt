@@ -1,4 +1,4 @@
-package com.example.meetin.doas
+package com.example.meetin.daos
 
 import com.example.meetin.models.User
 import com.google.android.gms.tasks.Task

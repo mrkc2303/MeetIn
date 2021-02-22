@@ -2,8 +2,7 @@ package com.example.meetin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.meetin.doas.PostDao
-import com.example.meetin.doas.UserDao
+import com.example.meetin.daos.PostDao
 import kotlinx.android.synthetic.main.activity_create_post.*
 
 class CreatePostActivity : AppCompatActivity() {
