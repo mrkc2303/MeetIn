@@ -1,13 +1,19 @@
 package com.example.meetin
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.meetin.daos.PostDao
 import com.example.meetin.models.Post
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.Query
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), IPostAdapter {
@@ -51,5 +57,28 @@ class MainActivity : AppCompatActivity(), IPostAdapter {
 
     override fun onLikeClicked(postId: String) {
         postDao.updateLikes(postId)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if(id == R.id.logout){
+            AlertDialog.Builder(this)
+                .setMessage("Do you sure you want to Log-out")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", DialogInterface.OnClickListener(){ dialogInterface: DialogInterface, i: Int ->
+                        Firebase.auth.signOut()
+                        val signInActivityIntent = Intent(this, SignInActivity::class.java)
+                        startActivity(signInActivityIntent)
+                        finish()
+                    })
+                    .setNegativeButton("No", null)
+                    .show()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
