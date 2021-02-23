@@ -32,9 +32,15 @@ class MainActivity : AppCompatActivity(), IPostAdapter {
             startActivity(intent)
         }
 
-        setSupportActionBar(findViewById(R.id.mainToolbar))
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        setUpToolbar()
+//        setSupportActionBar(findViewById(R.id.mainToolbar))
+//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setUpRecyclerView()
+    }
+
+    private fun setUpToolbar() {
+        setSupportActionBar(findViewById(R.id.mainToolbar))
+        supportActionBar?.title = "MeetIn"
     }
 
     private fun setUpRecyclerView() {
