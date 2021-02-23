@@ -6,18 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".CreatePostActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/mainToolbar"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/design_default_color_primary"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="4dp"/>
+
     <EditText
         android:id="@+id/postInput"
         android:layout_width="0dp"
         android:layout_height="200dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/edittext_round_shape"
+        android:gravity="top"
+        android:hint="What do you want to talk about?"
+        android:padding="12dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="What do you want to talk about?"
-        android:gravity="top"
-        android:layout_margin="12dp"
-        android:padding="12dp"
-        android:background="@drawable/edittext_round_shape"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:layout_width="0dp"

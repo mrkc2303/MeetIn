@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity(), IPostAdapter {
 
     private lateinit var postDao: PostDao
     private lateinit var adapter: PostAdapter
-    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +32,6 @@ class MainActivity : AppCompatActivity(), IPostAdapter {
         }
 
         setUpToolbar()
-//        setSupportActionBar(findViewById(R.id.mainToolbar))
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setUpRecyclerView()
     }
 
